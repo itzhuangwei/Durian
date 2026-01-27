@@ -12,6 +12,7 @@ target/
 *.iws
 *.iml
 *.ipr
+.mvn/
 
 ### Eclipse ###
 .apt_generated
@@ -37,3 +38,8 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+### Log ###
+*.log
+*.log.*
+/logs/
