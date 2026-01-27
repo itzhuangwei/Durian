@@ -17,6 +17,7 @@
         <module>durian-demo</module>
         <module>durian-system</module>
         <module>durian-redis</module>
+        <module>durian-common</module>
     </modules>
 
     <properties>
@@ -55,6 +56,12 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.13.0</version>
         </dependency>
     </dependencies>
 
