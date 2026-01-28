@@ -18,6 +18,7 @@
         <module>durian-system</module>
         <module>durian-redis</module>
         <module>durian-common</module>
+        <module>langchain4j-demo</module>
     </modules>
 
     <properties>

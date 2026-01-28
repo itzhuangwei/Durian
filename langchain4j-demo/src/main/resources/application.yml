@@ -1,0 +1,27 @@
+server:
+  port: 28080
+
+spring:
+  cloud:
+    nacos:
+      config:
+        import-check:
+          enabled: false
+langchain4j:
+  community:
+    dashscope:
+      chat-model:
+        api-key: ${QWEN_API_KEY}
+        model-name: qwen-max
+        log-requests: true
+        log-responses: true
+
+#  open-ai:
+#    chat-model:
+#      api-key: {QWEN_API_KEY}
+#      model-name: qwen-max
+#      log-requests: true
+#      log-responses: true
+#      base-url: https://api.deepseek.com
+
+
