@@ -7,20 +7,26 @@ management:
     web:
       exposure:
         include: "*"
+#spring:
+#  application:
+#    name: durian-demo
+#  cloud:
+#    nacos:
+#      serverAddr: 127.0.0.1:8848 #如果用的云上托管版本，输入可访问的Nacos Server地址即可
+#      config:
+#        namespace: ffbbd538-9135-4329-b278-2b354bf65330            # 环境隔离，建议用 UUID 或 custom
+#        group: DEFAULT_GROUP
+#      discovery:
+#        server-addr: ${spring.cloud.nacos.server-addr}
+#        namespace: ${spring.cloud.nacos.config.namespace}
+#        group: ${spring.cloud.nacos.config.group}
+#  config:
+#    import:
+#      - nacos:nacos-config-example.yml?refreshEnabled=true
+#      - nacos:durian-demo.yml?refreshEnabled=true
 spring:
-  application:
-    name: durian-demo
   cloud:
     nacos:
-      serverAddr: 127.0.0.1:8848 #如果用的云上托管版本，输入可访问的Nacos Server地址即可
       config:
-        namespace: ffbbd538-9135-4329-b278-2b354bf65330            # 环境隔离，建议用 UUID 或 custom
-        group: DEFAULT_GROUP
-      discovery:
-        server-addr: ${spring.cloud.nacos.server-addr}
-        namespace: ${spring.cloud.nacos.config.namespace}
-        group: ${spring.cloud.nacos.config.group}
-  config:
-    import:
-      - nacos:nacos-config-example.yml?refreshEnabled=true
-      - nacos:durian-demo.yml?refreshEnabled=true
+        import-check:
+          enabled: false
