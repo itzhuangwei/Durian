@@ -1,0 +1,17 @@
+
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+  cloud:
+    nacos:
+      config:
+        import-check:
+          enabled: false
+  application:
+    name: producer-service
+server:
+  port: 19090

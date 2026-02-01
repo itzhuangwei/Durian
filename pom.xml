@@ -19,6 +19,7 @@
         <module>durian-redis</module>
         <module>durian-common</module>
         <module>langchain4j-demo</module>
+        <module>durian-rabbitmq</module>
     </modules>
 
     <properties>
