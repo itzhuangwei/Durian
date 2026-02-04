@@ -47,4 +47,18 @@ public class ProducerTest {
     public void testSendDirectMessage() {
         rabbitTemplate.convertAndSend(DIRECT_EXCHANGE_NAME, DIRECT_ROUTING_KEY, "hello world, rabbitmq - direct");
     }
+
+    // 主题交换机模式 topic
+
+    private static final String TOPIC_EXCHANGE_NAME = "test.exchange.topic";
+
+    @Test
+    public void testSendTopicMessage() {
+        rabbitTemplate.convertAndSend(TOPIC_EXCHANGE_NAME, "order.info", "hello world, rabbitmq - topic - order info");
+    }
+
+    @Test
+    public void testSendTopicMessage2() {
+        rabbitTemplate.convertAndSend(TOPIC_EXCHANGE_NAME, "order.info.error", "hello world, rabbitmq - topic - order info error");
+    }
 }

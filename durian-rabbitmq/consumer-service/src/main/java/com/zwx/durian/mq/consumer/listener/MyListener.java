@@ -44,4 +44,9 @@ public class MyListener {
     public void handleFanout02(String message) {
         System.out.println("test.queue.fanout02 - 接收到消息：" + message);
     }
+
+    @RabbitListener(queues = "test.queue.direct")
+    public void handleDirect(String message) {
+        System.out.println("test.queue.direct - 接收到消息：" + message);
+    }
 }
