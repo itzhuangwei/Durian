@@ -31,4 +31,11 @@ public class ProducerTest {
             rabbitTemplate.convertAndSend(EXCHANGE_NAME, WORK_QUEUE_NAME, "hello world, rabbitmq - " + i);
         }
     }
+
+    private static final String FANOUT_EXCHANGE_NAME = "test.exchange.fanout";
+
+    @Test
+    public void testSendFanoutMessage() {
+        rabbitTemplate.convertAndSend(FANOUT_EXCHANGE_NAME, "", "hello world, rabbitmq - fanout");
+    }
 }

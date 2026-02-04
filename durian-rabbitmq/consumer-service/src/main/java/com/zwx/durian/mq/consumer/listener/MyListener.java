@@ -34,4 +34,14 @@ public class MyListener {
     public void onWorkMessage2(String message) {
         System.out.println("onWorkMessage2 - 接收到消息：" + message);
     }
+
+    @RabbitListener(queues = "test.queue.fanout01")
+    public void handleFanout01(String message) {
+        System.out.println("test.queue.fanout01 - 接收到消息：" + message);
+    }
+
+    @RabbitListener(queues = "test.queue.fanout02")
+    public void handleFanout02(String message) {
+        System.out.println("test.queue.fanout02 - 接收到消息：" + message);
+    }
 }
