@@ -38,4 +38,13 @@ public class ProducerTest {
     public void testSendFanoutMessage() {
         rabbitTemplate.convertAndSend(FANOUT_EXCHANGE_NAME, "", "hello world, rabbitmq - fanout");
     }
+
+    // 定向交换机模式
+    private static final String DIRECT_EXCHANGE_NAME = "test.exchange.direct";
+    private static final String DIRECT_ROUTING_KEY = "text.routing.key.good";
+
+    @Test
+    public void testSendDirectMessage() {
+        rabbitTemplate.convertAndSend(DIRECT_EXCHANGE_NAME, DIRECT_ROUTING_KEY, "hello world, rabbitmq - direct");
+    }
 }
