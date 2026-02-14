@@ -22,6 +22,14 @@ spring:
         group: ${spring.cloud.nacos.config.group}
       name: nacos
       password: 1qaz2wsx
+    openfeign:
+      circuitbreaker:
+        enabled: true # 开启断路器
+      client:
+        config:
+          default:  # 全局默认配置
+            connectTimeout: 5000
+            readTimeout: 5000
   config:
     import:
       - nacos:nacos-config-example.yml?refreshEnabled=true
