@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: durian-gateway-service
+  config:
+    import:
+      - nacos:durian-gateway-service.yml?refreshEnabled=true
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      config:
+        server-addr: ${spring.cloud.nacos.server-addr}
+        namespace: ffbbd538-9135-4329-b278-2b354bf65330
+        group: DEFAULT_GROUP
+      discovery:
+        server-addr: ${spring.cloud.nacos.server-addr}
+        namespace: ${spring.cloud.nacos.config.namespace}
+        group: ${spring.cloud.nacos.config.group}
+      username: nacos
+      password: nacos
+    gateway:
+      discovery:
+        locator:
+          enabled: true # 开启服务发现路由
+          lowerCaseServiceId: true
+      # 默认关闭全部路由(生产建议开启)
+      routes: []
+  main:
+    web-application-type: reactive
+server:
+  port: 18080
+
+# 日志
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
+    reactor.netty: debug
