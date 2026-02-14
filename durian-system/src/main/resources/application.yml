@@ -9,7 +9,7 @@ management:
         include: "*"
 spring:
   application:
-    name: durian-system
+    name: durian-system-serve
   cloud:
     nacos:
       serverAddr: 127.0.0.1:8848 #如果用的云上托管版本，输入可访问的Nacos Server地址即可
@@ -20,6 +20,8 @@ spring:
         server-addr: ${spring.cloud.nacos.server-addr}
         namespace: ${spring.cloud.nacos.config.namespace}
         group: ${spring.cloud.nacos.config.group}
+      name: nacos
+      password: 1qaz2wsx
   config:
     import:
       - nacos:nacos-config-example.yml?refreshEnabled=true

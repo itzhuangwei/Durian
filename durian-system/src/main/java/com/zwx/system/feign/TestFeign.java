@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.Map;
 
-@FeignClient(name = "durian-demo")
+@FeignClient(name = "durian-demo-serve")
 public interface TestFeign {
 
     @GetMapping("/durian-demo/demo/info")

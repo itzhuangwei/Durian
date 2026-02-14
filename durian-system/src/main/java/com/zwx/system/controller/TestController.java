@@ -22,7 +22,7 @@ public class TestController {
     @GetMapping("/get-rest")
     public String getInfoRest() {
         // 通过服务名调用 durian-demo 服务
-        String url = "http://durian-demo/durian-demo/demo/info";
+        String url = "http://durian-demo-serve/durian-demo/demo/info";
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
         return response.getBody();
     }

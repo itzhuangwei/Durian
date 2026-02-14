@@ -3,7 +3,6 @@ package com.zwx.system.feign.impl;
 import com.zwx.system.feign.TestFeign;
 import org.springframework.http.ResponseEntity;
 
-import java.io.Serializable;
 import java.util.Map;
 
 public class TestFeignFallBack implements TestFeign {
