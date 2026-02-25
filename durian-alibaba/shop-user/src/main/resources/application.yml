@@ -1,0 +1,23 @@
+server:
+  port: 28080
+  servlet:
+    context-path: /shop-user
+
+spring:
+  application:
+    name: shop-user-serve
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      password: 1qaz2wsx
+      username: nacos
+      config:
+        namespace: ffbbd538-9135-4329-b278-2b354bf65330
+        group: DEFAULT_GROUP
+      discovery:
+        server-addr: ${spring.cloud.nacos.server-addr}
+        namespace: ${spring.cloud.nacos.config.namespace}
+        group: ${spring.cloud.nacos.config.group}
+  config:
+    import:
+      - nacos:common-ps-shop-database-config.yml?refreshEnabled=true

@@ -1,0 +1,37 @@
+server:
+  port: 28082
+  servlet:
+    context-path: /shop-order
+feign:
+  sentinel:
+    enabled: true # 开启feign的sentinel,这一步至关重要,否则sentinel不生效
+spring:
+  application:
+    name: shop-order-serve
+  cloud:
+    sentinel:
+      transport:
+          port: 8720 # 微服务与控制台交互的端口，默认8719，如果被占用会自动+1寻找
+          dashboard: 127.0.0.1:9000 # 控制台地址
+      eager: true
+    loadbalancer:
+      nacos:
+        enabled: true
+    nacos:
+      server-addr: 127.0.0.1:8848
+      password: 1qaz2wsx
+      username: nacos
+      config:
+        namespace: ffbbd538-9135-4329-b278-2b354bf65330
+        group: DEFAULT_GROUP
+      discovery:
+        server-addr: ${spring.cloud.nacos.server-addr}
+        namespace: ${spring.cloud.nacos.config.namespace}
+        group: ${spring.cloud.nacos.config.group}
+  config:
+    import:
+      - nacos:common-ps-shop-database-config.yml?refreshEnabled=true
+
+logging:
+  level:
+    com.zwx.shop.order.service.ProductService: debug

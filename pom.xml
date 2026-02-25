@@ -21,6 +21,7 @@
         <module>langchain4j-demo</module>
         <module>durian-rabbitmq</module>
         <module>durian-gateway-service</module>
+        <module>durian-alibaba</module>
     </modules>
 
     <properties>

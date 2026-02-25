@@ -1,0 +1,45 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/shop
+    username: postgres
+    password: 1qaz2wsx
+    driver-class-name: org.postgresql.Driver
+
+    # HikariCP 连接池常用调优（生产建议开启）
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      idle-timeout: 30000
+      max-lifetime: 1800000          # 30分钟
+      connection-timeout: 30000
+      pool-name: PostgresqlHikariCP
+
+  jpa:
+    # 是否在启动时显示 SQL（开发环境打开，生产关闭）
+    show-sql: true
+    # 格式化 SQL（更易读）
+    properties:
+      hibernate:
+        default_schema: shop
+        format_sql: true
+        jdbc:
+          batch_size: 50
+        order_inserts: true
+        order_updates: true
+        # dialect 根据 PostgreSQL 版本自动选择即可，通常不需要手动指定
+        # dialect: org.hibernate.dialect.PostgreSQLDialect
+        # 或更新的：org.hibernate.dialect.PostgreSQLDialect（16/17都兼容）
+
+    # 自动建表策略（生产环境建议 none 或 validate）
+    hibernate:
+      ddl-auto: update          # 开发用 update / create-drop，生产用 none / validate
+
+    # 开启批量插入优化（批量操作时性能提升明显）
+
+
+# 日志级别（开发时建议打开）
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.orm.jdbc.bind: TRACE   # 显示绑定参数
+    # org.springframework.jdbc: DEBUG

@@ -1,0 +1,13 @@
+启动命令:
+
+java -Dserver.port=9000 -Dcsp.sentinel.dashboard.server=localhost:9000 -Dproject.name=sentinel-dashboard -jar sentinel-dashboard-1.8.9.jar
+
+
+
+
+
+
+pg_upgrade -b /usr/local/var/postgresql@14/bin \\
+           -B /usr/local/var/postgresql@17/bin \\
+           -d /usr/local/var/postgres14 \\
+           -D /usr/local/var/postgres
